@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { TextInput } from "react-native-paper";
-import { View, StyleSheet, Text, FlatList, SafeAreaView } from "react-native";
+import React, { useState } from 'react';
+import { TextInput } from 'react-native-paper';
+import { View, StyleSheet, Text, FlatList, SafeAreaView } from 'react-native';
 
-import { RoundedButton } from "../../components/RoundedButton";
-import { fontSizes } from "../../utils/sizes";
+import { RoundedButton } from '../../components/RoundedButton';
+import { fontSizes } from '../../utils/sizes';
 
 export const Focus = ({ addSubject, focusHistory }) => {
   const [focusItem, setFocusItem] = useState(null);
@@ -15,7 +15,10 @@ export const Focus = ({ addSubject, focusHistory }) => {
           style={{ flex: 1 }}
           maxLength={50}
           value={focusItem}
-          onSubmitEditing={({ nativeEvent: { text } }) => setFocusItem(text)}
+          onSubmitEditing={({ nativeEvent: { text } }) => {
+            console.log(text);
+            setFocusItem(text);
+          }}
         />
         <RoundedButton
           style={styles.addSubject}
@@ -30,14 +33,14 @@ export const Focus = ({ addSubject, focusHistory }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
+    flexDirection: 'row',
   },
-  titleContainer: { flex: 0.5, padding: 16, justifyContent: "center" },
+  titleContainer: { flex: 0.5, padding: 16, justifyContent: 'center' },
   title: {
-    color: "white",
-    fontWeight: "bold",
+    color: 'white',
+    fontWeight: 'bold',
     padding: 16,
     fontSize: fontSizes.lg,
   },
-  addSubject: { marginLeft: 10, alignSelf: "center" },
+  addSubject: { marginLeft: 10, alignSelf: 'center' },
 });
