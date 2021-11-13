@@ -10,7 +10,7 @@ import { Timing } from "./Timing";
 
 export const Timer = ({ subject, clearSubject, onTimerEnd }) => {
   useKeepAwake();
-  
+
   const soundObject = new Audio.Sound();
 
   const [minutes, setMinutes] = useState(0.1);
@@ -33,7 +33,7 @@ export const Timer = ({ subject, clearSubject, onTimerEnd }) => {
       const interval = setInterval(() => Vibration.vibrate(5000), 1000);
       setTimeout(() => {
         clearInterval(interval);
-      }, 10000);
+      }, 2000);
     } catch (error) {
       console.log(error);
     }
